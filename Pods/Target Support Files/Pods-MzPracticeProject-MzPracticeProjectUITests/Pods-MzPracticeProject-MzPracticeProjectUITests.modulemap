@@ -1,0 +1,6 @@
+framework module Pods_MzPracticeProject_MzPracticeProjectUITests {
+  umbrella header "Pods-MzPracticeProject-MzPracticeProjectUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
