@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94082A722856C3ED008D7715 /* CachePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94082A702856C3ED008D7715 /* CachePlayer.swift */; };
+		94082A732856C3ED008D7715 /* CachePlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94082A712856C3ED008D7715 /* CachePlayerManager.swift */; };
 		94128E4C284FE443009180C4 /* HlsVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94128E4B284FE443009180C4 /* HlsVideo.swift */; };
 		94128E4E284FE4C1009180C4 /* VideosAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94128E4D284FE4C1009180C4 /* VideosAPI.swift */; };
 		943BE5292852A36B00416952 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943BE5272852A36B00416952 /* VideoCollectionViewCell.swift */; };
@@ -19,7 +21,6 @@
 		943BE537285512EB00416952 /* PlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 943BE535285512EA00416952 /* PlayerCell.xib */; };
 		943BE53B2855264F00416952 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943BE53A2855264F00416952 /* VideoPlayer.swift */; };
 		943BE53D28552CDC00416952 /* VideoPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 943BE53C28552CDC00416952 /* VideoPlayer.xib */; };
-		943BE5402855772900416952 /* VideoCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943BE53F2855772900416952 /* VideoCacheManager.swift */; };
 		943BE5492855777A00416952 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943BE5442855777A00416952 /* String.swift */; };
 		943BE54D28564C8400416952 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943BE54C28564C8300416952 /* UIView.swift */; };
 		94BF563B2828686900FE777B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF563A2828686900FE777B /* AppDelegate.swift */; };
@@ -68,6 +69,8 @@
 		515FA8816EFC687477EAAB4F /* Pods-MzPracticeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MzPracticeProject.debug.xcconfig"; path = "Target Support Files/Pods-MzPracticeProject/Pods-MzPracticeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		8051FE6D7A4ECA44EB04AD32 /* Pods-MzPracticeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MzPracticeProject.release.xcconfig"; path = "Target Support Files/Pods-MzPracticeProject/Pods-MzPracticeProject.release.xcconfig"; sourceTree = "<group>"; };
 		83A8D496BBEC2AA0C24492B1 /* Pods-MzPracticeProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MzPracticeProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-MzPracticeProjectTests/Pods-MzPracticeProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		94082A702856C3ED008D7715 /* CachePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachePlayer.swift; sourceTree = "<group>"; };
+		94082A712856C3ED008D7715 /* CachePlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachePlayerManager.swift; sourceTree = "<group>"; };
 		94128E4B284FE443009180C4 /* HlsVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HlsVideo.swift; sourceTree = "<group>"; };
 		94128E4D284FE4C1009180C4 /* VideosAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosAPI.swift; sourceTree = "<group>"; };
 		943BE5272852A36B00416952 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -80,7 +83,6 @@
 		943BE535285512EA00416952 /* PlayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCell.xib; sourceTree = "<group>"; };
 		943BE53A2855264F00416952 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		943BE53C28552CDC00416952 /* VideoPlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayer.xib; sourceTree = "<group>"; };
-		943BE53F2855772900416952 /* VideoCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCacheManager.swift; sourceTree = "<group>"; };
 		943BE5442855777A00416952 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		943BE54C28564C8300416952 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		94BF56372828686900FE777B /* MzPracticeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MzPracticeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +164,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		94082A6F2856C3ED008D7715 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				94082A702856C3ED008D7715 /* CachePlayer.swift */,
+				94082A712856C3ED008D7715 /* CachePlayerManager.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		943BE5382855131F00416952 /* PlayerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,14 +193,6 @@
 				943BE5282852A36B00416952 /* VideoCollectionViewCell.xib */,
 			);
 			path = HomeView;
-			sourceTree = "<group>";
-		};
-		943BE53E2855772900416952 /* VideoCache */ = {
-			isa = PBXGroup;
-			children = (
-				943BE53F2855772900416952 /* VideoCacheManager.swift */,
-			);
-			path = VideoCache;
 			sourceTree = "<group>";
 		};
 		943BE5412855777A00416952 /* Extensions */ = {
@@ -230,10 +233,10 @@
 				94BF566A28286AB800FE777B /* Models */,
 				943BE5412855777A00416952 /* Extensions */,
 				94BF566F28286AB900FE777B /* Services */,
+				94082A6F2856C3ED008D7715 /* Cache */,
 				94BF566B28286AB900FE777B /* Storyboard */,
 				94BF566D28286AB900FE777B /* ViewModels */,
 				94BF566E28286AB900FE777B /* Views */,
-				943BE53E2855772900416952 /* VideoCache */,
 				94BF563A2828686900FE777B /* AppDelegate.swift */,
 				94BF563C2828686900FE777B /* SceneDelegate.swift */,
 				94BF56432828686B00FE777B /* Assets.xcassets */,
@@ -569,6 +572,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94082A722856C3ED008D7715 /* CachePlayer.swift in Sources */,
 				94E67E71282A99AB00B93A6E /* APIClient.swift in Sources */,
 				94128E4E284FE4C1009180C4 /* VideosAPI.swift in Sources */,
 				943BE52E2853C18C00416952 /* VideoItem.swift in Sources */,
@@ -579,6 +583,7 @@
 				94BF567328286B9200FE777B /* StoryboardCreatable.swift in Sources */,
 				94BF563F2828686900FE777B /* HomeViewController.swift in Sources */,
 				943BE536285512EB00416952 /* PlayerCell.swift in Sources */,
+				94082A732856C3ED008D7715 /* CachePlayerManager.swift in Sources */,
 				943BE5322854D15000416952 /* PlayerViewModel.swift in Sources */,
 				943BE5292852A36B00416952 /* VideoCollectionViewCell.swift in Sources */,
 				94E67E77282AB12600B93A6E /* APIRequestCreator.swift in Sources */,
@@ -591,7 +596,6 @@
 				94BF567428286B9200FE777B /* UIViewController+StoryboardCreatable.swift in Sources */,
 				94BF563D2828686900FE777B /* SceneDelegate.swift in Sources */,
 				94E67E7C282B243A00B93A6E /* APIRoute.swift in Sources */,
-				943BE5402855772900416952 /* VideoCacheManager.swift in Sources */,
 				94E67E79282ABB7600B93A6E /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

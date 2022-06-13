@@ -10,11 +10,10 @@ import Combine
 import AVFoundation
 
 class PlayerViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var cancelableObservers:[AnyCancellable] = []
-    var videoURLS: [String]?
     var playerViewModel = PlayerViewModel()
     
     
@@ -67,10 +66,15 @@ class PlayerViewController: UIViewController {
         
     }
     
+    
+    
     private func configureDataSource() {
         let nib = UINib(nibName: String.init(describing: PlayerCell.self), bundle: .main)
-        let videoCellRegisteration = UICollectionView.CellRegistration<PlayerCell, VideoItem>(cellNib: nib) { cell, indexPath, videoItem in
-            cell.configure(videoItem)
+        let videoCellRegisteration = UICollectionView.CellRegistration<PlayerCell, VideoItem>(cellNib: nib) { [unowned self] cell, indexPath, videoItem in
+            
+            let itemTemp = playerViewModel.cacheManager.addIfAvailableGetCachedPlayerFor(videoItem)
+            cell.configure(itemTemp)
+            playerViewModel.cacheNextItemsFromIndex(indexPath.item + 1)
         }
         
         videosDataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { [unowned self] collectionView, indexPath, itemIdentifier in
@@ -87,20 +91,20 @@ class PlayerViewController: UIViewController {
 extension PlayerViewController {
     func createLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-
+        
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-
+        
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-
+        
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-
+        
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPaging
-
+        
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.scrollDirection = .horizontal
-
+        
         let layout = UICollectionViewCompositionalLayout(section: section, configuration: config)
         return layout
     }

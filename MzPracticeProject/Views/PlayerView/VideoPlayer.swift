@@ -18,13 +18,10 @@ enum PlayerState {
 
 class VideoPlayer: UIView {
     
-    private var videoURL:String?
-    private var asset: AVURLAsset?
-    private var playerItem: AVPlayerItem?
+    private var cachePlayer:CachePlayer?
     private var player:AVQueuePlayer?
-    private var playerlooper:AVPlayerLooper?
     private var avPlayerLayer: AVPlayerLayer?
-    var observer: NSKeyValueObservation?
+    private var observer: NSKeyValueObservation?
     private var containerView:UIView!
     
     private var isLoading = CurrentValueSubject<Bool, Never>(false)
@@ -56,55 +53,43 @@ class VideoPlayer: UIView {
     }
     
     func getPlayer() -> AVQueuePlayer? {
-        return player
+        return cachePlayer?.player
     }
     
-    
-    func configurePlayer(urlString:String) {
-        self.videoURL = urlString
+    func configurePlayerWith(cachePlayer temp:CachePlayer) {
+        cachePlayer = temp
         configurePlayer()
         self.bringSubviewToFront(playPauseBtn)
     }
     
+    private func configurePlayer() {
+        if let cachePlayerTemp = self.cachePlayer, let playerTemp = cachePlayerTemp.player {
+            player = playerTemp
+            player?.currentItem?.preferredForwardBufferDuration = 0
+            isLoading.send(true)
+            addObserverToPlayerItem(player!)
+            if avPlayerLayer == nil {
+                avPlayerLayer = AVPlayerLayer(player: player!)
+            } else {
+                avPlayerLayer?.player =  player!
+            }
+            avPlayerLayer?.videoGravity = .resizeAspectFill
+            playerView.layer.sublayers?
+                .filter { $0 is AVPlayerLayer }
+                .forEach { $0.removeFromSuperlayer() }
+            playerView.layer.addSublayer(avPlayerLayer!)
+        }
+        
+    }
+    
     func configureListener() {
-        isLoading.sink { isLoadingTemp in
+        isLoading.sink { [unowned self] isLoadingTemp in
             if isLoadingTemp == true {
                 self.showLoading()
             } else {
                 self.hideLoading()
             }
         }.store(in: &subscribers)
-    }
-    
-    private func configurePlayer() {
-        
-        if let urlString = videoURL, let url = URL(string: urlString) {
-            isLoading.send(true)
-            self.asset = AVURLAsset(url: url)
-            self.playerItem = AVPlayerItem(asset: asset!)
-            if player == nil {
-                player = AVQueuePlayer(playerItem: playerItem)
-                addObserverToPlayerItem()
-//                player?.addObserver(self, forKeyPath: "status", options: [], context: nil)
-                playerlooper = AVPlayerLooper(player: player!, templateItem: playerItem!)
-                
-                avPlayerLayer = AVPlayerLayer(player: player)
-                avPlayerLayer?.videoGravity = .resizeAspectFill
-                
-//                playerView.layer.sublayers?
-//                    .filter {$0 is AVPlayerLayer}
-//                    .forEach { $0.removeFromSuperlayer() }
-                
-                playerView.layer.addSublayer(avPlayerLayer!)
-            } else {
-                player?.replaceCurrentItem(with: playerItem)
-            }
-            
-//            self.playVideo()
-            
-            
-        }
-        
     }
     
     @IBAction func playPauseBtn(_ sender: Any) {
@@ -143,7 +128,7 @@ class VideoPlayer: UIView {
     func loadNib() {
         let name = String.init(describing: VideoPlayer.self)
         containerView = Bundle.main.loadNibNamed(name,
-                                               owner: self,
+                                                 owner: self,
                                                  options: nil)!.first as? UIView
         containerView.frame = self.frame
         self.addSubview(containerView)
@@ -156,9 +141,7 @@ class VideoPlayer: UIView {
     }
     
     func stopVideo() {
-//        print("///-=-=-=-=-=-=---=-=-=-=-=-=-=-")
-        print("///player sstopped =  \(videoURL ?? "")")
-//        print("///-=-=-=-=-=-=---=-=-=-=-=-=-=-")
+        print("///player sstopped =  \(cachePlayer?.videoItem?.videoURL ?? "")")
         player?.pause()
     }
     
@@ -168,26 +151,20 @@ class VideoPlayer: UIView {
     
     func playVideo() {
         player?.play()
-//        print("///-=-=-=-=-=-=---=-=-=-=-=-=-=-")
-        print("///player play =  \(videoURL ?? "")")
-//        print("///-=-=-=-=-=-=---=-=-=-=-=-=-=-")
+        print("///player play =  \(cachePlayer?.videoItem?.videoURL ?? "")")
     }
     
     func clearPlayer() {
         
         removeObserver()
-        
-        videoURL = nil
-        asset = nil
-        playerItem = nil
+        cachePlayer?.clearPlayer()
+//        avPlayerLayer = nil
         player = nil
-        playerlooper = nil
-        avPlayerLayer = nil
-        
+        cachePlayer = nil
     }
     
     deinit {
-        self.removeObserver()
+        clearPlayer()
     }
 }
 
@@ -198,8 +175,8 @@ extension VideoPlayer {
         }
     }
     
-    fileprivate func addObserverToPlayerItem() {
-        self.observer = player?.observe(\.status, options: [.initial, .new], changeHandler: { [unowned self]  item, _ in
+    fileprivate func addObserverToPlayerItem(_ playerObje:AVQueuePlayer) {
+        self.observer = playerObje.observe(\.status, options: [.initial, .new], changeHandler: { [unowned self]  item, _ in
             let status = item.status
             switch status {
             case .readyToPlay:

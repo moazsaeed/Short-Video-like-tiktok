@@ -107,8 +107,6 @@ extension HomeViewController: UICollectionViewDelegate {
         playerVC.playerViewModel.videos.value = videosTemp
         let selectedVideo = videosTemp[indexPath.item]
         playerVC.playerViewModel.playingVideoID.value = selectedVideo.id
-//        navigationController?.pushViewController(playerVC, animated: true)
-//        navigationController?.present(playerVC, animated: true)
         navigationController?.show(playerVC, sender: self)
         
     }

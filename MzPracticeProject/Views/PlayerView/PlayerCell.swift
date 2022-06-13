@@ -10,8 +10,6 @@ import UIKit
 
 
 class PlayerCell: UICollectionViewCell {
-//    var playerView:VideoPlayer?
-    
     
     @IBOutlet weak var playerView: VideoPlayer!
     var currentVideoItem:VideoItem?
@@ -21,12 +19,9 @@ class PlayerCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func configure(_ videoItem:VideoItem) {
-        self.currentVideoItem = videoItem
-        if let url = currentVideoItem?.videoURL {
-            playerView.configurePlayer(urlString: url)
-        }
-        
+    func configure(_ cachePlayer:CachePlayer) {
+        self.currentVideoItem = cachePlayer.videoItem
+        playerView.configurePlayerWith(cachePlayer: cachePlayer)
     }
     
     func cellDisappeared() {
