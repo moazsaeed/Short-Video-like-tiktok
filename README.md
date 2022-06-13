@@ -21,7 +21,7 @@ Covers the following:
 ## Discussions
 
 I have used `UIKit` for user interface creation, `Combine` allows me to use features like publishers and subscribers. Used `MVVM` Architectural design pattern is for modularized, maintainable and decoupled Codeing, Bindings make UI updates easier to handle etc.
-`CompositionalLayouts` for listing, `Diffablle Datasource` for datasource for listings. `AVFoundation``AVPlayer` for playing video
+`CompositionalLayouts` for listing, `Diffablle Datasource` for datasource for listings. `AVFoundation` `AVPlayer` for playing video
 
 ## Screenshots
 
