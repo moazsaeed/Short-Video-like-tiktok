@@ -1,15 +1,15 @@
 //
-//  NewsAPI.swift
+//  VideosAPI.swift
 //  MzPracticeProject
 //
-//  Created by Moaz Saeed (c) on 12/05/2022.
+//  Created by Moaz Saeed (c) on 08/06/2022.
 //
 
 import Foundation
 
-struct NewsAPI: APIDataProtocol {
+struct VideosAPI: APIDataProtocol {
     var path: String {
-        return APIRoutes.news.rawValue
+        return APIRoutes.videos.rawValue
     }
     
     var parameteres: HTTPParameters? {

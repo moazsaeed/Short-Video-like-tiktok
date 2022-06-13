@@ -2,7 +2,7 @@
 //  URLRequestConfigurator.swift
 //  MzPracticeProject
 //
-//  Created by Moaz Saeed (c) on 10/05/2022.
+//  Created by Moaz Saeed (c) on 10/06/2022.
 //
 
 import Foundation
@@ -71,7 +71,7 @@ struct URLEncoder {
         }
         if var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false), !parameters.isEmpty {
             for (key, value) in parameters {
-                let queryItem = URLQueryItem(name: key, value: "\(value)")
+                let queryItem = URLQueryItem(name: key, value: "\(value)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed))
                 urlComponents.queryItems?.append(queryItem)
             }
             request.url = urlComponents.url

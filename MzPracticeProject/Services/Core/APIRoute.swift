@@ -2,7 +2,7 @@
 //  APIRoute.swift
 //  MzPracticeProject
 //
-//  Created by Moaz Saeed (c) on 11/05/2022.
+//  Created by Moaz Saeed (c) on 11/06/2022.
 //
 
 import Foundation
@@ -10,6 +10,5 @@ import Foundation
 
 
 public enum APIRoutes: String {
-    case news = "/NewsAPI/everything/cnn.json"
-    
+    case videos = "/video/getHLSTestingVideos"
 }

@@ -1,4 +1,5 @@
 PODS:
+  - Kingfisher (7.2.1)
   - KRActivityIndicatorView (3.0.7)
   - KRProgressHUD (3.4.7):
     - KRActivityIndicatorView (= 3.0.7)
@@ -10,12 +11,14 @@ PODS:
   - RxSwift (6.5.0)
 
 DEPENDENCIES:
+  - Kingfisher (~> 7.0)
   - KRProgressHUD
   - RxCocoa
   - RxSwift
 
 SPEC REPOS:
   trunk:
+    - Kingfisher
     - KRActivityIndicatorView
     - KRProgressHUD
     - RxCocoa
@@ -23,12 +26,13 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
+  Kingfisher: 7c084bebf7d548c623ad41bcf765fb200efed369
   KRActivityIndicatorView: ad69e89c4ce40c986cf580595be4829dcad0e35a
   KRProgressHUD: a248f0bc6c9c2aed40a37b76e03ffecc7f85c887
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
 
-PODFILE CHECKSUM: 05bf69572da59de698a9d065304604367a205b12
+PODFILE CHECKSUM: e02fb9e5d7bda20a3f10c85af913ab59fe4627e5
 
 COCOAPODS: 1.11.2

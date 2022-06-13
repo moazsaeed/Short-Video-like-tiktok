@@ -2,7 +2,7 @@
 //  APIError.swift
 //  MzPracticeProject
 //
-//  Created by Moaz Saeed (c) on 10/05/2022.
+//  Created by Moaz Saeed (c) on 10/06/2022.
 //
 
 import Foundation
@@ -23,6 +23,7 @@ public enum APIError:String, Error {
     case success = "Successful Network Request"
     case authenticationError = "Error Found : You must be Authenticated"
     case badRequest = "Error Found : Bad Request"
+    case badResponse = "Error Found : Bad Response"
     case pageNotFound = "Error Found : Page/Route rquested not found."
     case failed = "Error Found : Network Request failed"
     case serverSideError = "Error Found : Server error"

@@ -2,7 +2,7 @@
 //  APIData.swift
 //  MzPracticeProject
 //
-//  Created by Moaz Saeed (c) on 10/05/2022.
+//  Created by Moaz Saeed (c) on 10/06/2022.
 //
 
 import Foundation

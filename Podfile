@@ -8,7 +8,7 @@ target 'MzPracticeProject' do
   
   pod 'RxSwift'
   pod 'RxCocoa'
-#  pod 'AlamofireImage'
+  pod 'Kingfisher', '~> 7.0'
   pod 'KRProgressHUD'
 
   target 'MzPracticeProjectTests' do
