@@ -9,6 +9,8 @@ import UIKit
 import Combine
 import AVFoundation
 
+
+
 class PlayerViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -22,6 +24,16 @@ class PlayerViewController: UIViewController {
     }
     
     private var videosDataSource:UICollectionViewDiffableDataSource<Section, VideoItem.ID>!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AppUtility.lockOrientation(UIInterfaceOrientationMask.all)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

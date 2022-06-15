@@ -56,7 +56,5 @@ class CachePlayer {
         playerItem = nil
         player = nil
         playerlooper = nil
-        
-        
     }
 }

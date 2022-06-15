@@ -35,6 +35,7 @@
 		94BF567328286B9200FE777B /* StoryboardCreatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF567028286B9200FE777B /* StoryboardCreatable.swift */; };
 		94BF567428286B9200FE777B /* UIViewController+StoryboardCreatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF567128286B9200FE777B /* UIViewController+StoryboardCreatable.swift */; };
 		94BF567528286B9200FE777B /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF567228286B9200FE777B /* DateFormatter.swift */; };
+		94DEF31F2859E9EF008B7696 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DEF31E2859E9EF008B7696 /* AppUtility.swift */; };
 		94E67E71282A99AB00B93A6E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E67E70282A99AB00B93A6E /* APIClient.swift */; };
 		94E67E73282AA1E500B93A6E /* APIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E67E72282AA1E500B93A6E /* APIData.swift */; };
 		94E67E75282AA21800B93A6E /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E67E74282AA21800B93A6E /* APIConstants.swift */; };
@@ -101,6 +102,7 @@
 		94BF567028286B9200FE777B /* StoryboardCreatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardCreatable.swift; sourceTree = "<group>"; };
 		94BF567128286B9200FE777B /* UIViewController+StoryboardCreatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+StoryboardCreatable.swift"; sourceTree = "<group>"; };
 		94BF567228286B9200FE777B /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		94DEF31E2859E9EF008B7696 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		94E67E70282A99AB00B93A6E /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		94E67E72282AA1E500B93A6E /* APIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIData.swift; sourceTree = "<group>"; };
 		94E67E74282AA21800B93A6E /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			children = (
 				94BF566C28286AB900FE777B /* Helpers */,
 				94BF566A28286AB800FE777B /* Models */,
+				94DEF31D2859E9D6008B7696 /* Utility */,
 				943BE5412855777A00416952 /* Extensions */,
 				94BF566F28286AB900FE777B /* Services */,
 				94082A6F2856C3ED008D7715 /* Cache */,
@@ -315,6 +318,14 @@
 				94E67E7A282B237500B93A6E /* Core */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		94DEF31D2859E9D6008B7696 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				94DEF31E2859E9EF008B7696 /* AppUtility.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		94E67E7A282B237500B93A6E /* Core */ = {
@@ -594,6 +605,7 @@
 				943BE5492855777A00416952 /* String.swift in Sources */,
 				94BF563B2828686900FE777B /* AppDelegate.swift in Sources */,
 				94BF567428286B9200FE777B /* UIViewController+StoryboardCreatable.swift in Sources */,
+				94DEF31F2859E9EF008B7696 /* AppUtility.swift in Sources */,
 				94BF563D2828686900FE777B /* SceneDelegate.swift in Sources */,
 				94E67E7C282B243A00B93A6E /* APIRoute.swift in Sources */,
 				94E67E79282ABB7600B93A6E /* APIError.swift in Sources */,
@@ -776,12 +788,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZL6L4Y6TK9;
+				DEVELOPMENT_TEAM = 7242KPYD84;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MzPracticeProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -805,12 +818,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZL6L4Y6TK9;
+				DEVELOPMENT_TEAM = 7242KPYD84;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MzPracticeProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
